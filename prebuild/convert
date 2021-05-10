@@ -1,0 +1,10 @@
+#! /bin/sh
+
+for SRC in amd64/*_amd64.deb ; do
+  mkdir -p orig/DEBIAN
+  dpkg-deb -x ${SRC} orig/
+  dpkg-deb -e ${SRC} orig/DEBIAN
+  sed -i "s/Architecture: amd64/Architecture: arm64/" orig/DEBIAN/control
+  dpkg-deb -Z xz -b orig/ arm64
+  rm -rf orig
+done
