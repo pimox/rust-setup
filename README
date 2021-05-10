@@ -1,0 +1,4 @@
+The 'setup.sh' script will setup your system by installing the correct version or rustup, rust, cargo and
+very specific rust debian packages so you can build the Proxmox Rust code.
+
+ Tim <tim.j.wilkinson@gmail.com>

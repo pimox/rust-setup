@@ -1,3 +1,11 @@
+#
+# Try to setup the build machine so that we can build the rust components of Proxmox.
+# This involves a certain amount of flighting between how Debian wants to build things, how
+# Rust and Cargo want to build things, how Proxmox want to build things, and the version
+# nightmare that subsquently ensues.
+#
+# Tim <tim.j.wilkinson@gmail.com>
+#
 
 # Install rustup
 if [ ! -d "${HOME}/.rustup ]; then
