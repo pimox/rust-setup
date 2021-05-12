@@ -19,7 +19,7 @@ sudo apt install \
   cargo
 
 # Setup the compatible toolchain
-rustup tookchain install 1.51.0
+rustup toolchain install 1.51.0
 # And make system use it
 rustup toolchain link system 1.51.0-$(uname -m)-$(uname -i)-linux-gnu
 
