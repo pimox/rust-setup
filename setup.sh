@@ -26,6 +26,7 @@ rustup toolchain install ${TV}
 rustup toolchain link system "${HOME}/.rustup/toolchains/${TC}"
 
 # We need the latest debcargo
+sudo apt install libssl-dev libcurl4-gnutls-dev quilt
 cargo install debcargo
 
 # Replace the default debian cargo wrapper
