@@ -11,7 +11,7 @@
 if [ ! -d "${HOME}/.rustup" ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 fi
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"
 
 # We need to install the default rustc and cargo (even though we don't want to use them as) they're dependencies
 sudo apt install \
