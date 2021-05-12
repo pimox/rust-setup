@@ -7,6 +7,9 @@
 # Tim <tim.j.wilkinson@gmail.com>
 #
 
+# Set to "-t buster-backports" if necessary
+BP=
+
 # Install rustup
 if [ ! -d "${HOME}/.rustup" ]; then
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -14,7 +17,7 @@ fi
 . "$HOME/.cargo/env"
 
 # We need to install the default rustc and cargo (even though we don't want to use them as) they're dependencies
-sudo apt install \
+sudo apt install ${BP} \
   rustc \
   cargo
 
@@ -26,7 +29,7 @@ rustup toolchain install ${TV}
 rustup toolchain link system "${HOME}/.rustup/toolchains/${TC}"
 
 # We need the latest debcargo
-sudo apt install libssl-dev libcurl4-gnutls-dev quilt
+sudo apt install ${BP} libssl-dev libcurl4-gnutls-dev quilt
 cargo install debcargo
 
 # Replace the default debian cargo wrapper
@@ -41,5 +44,5 @@ if [ ! -f ${P}/cargo.pimox ]; then
 fi
 
 # Install the very specific dependencies
-sudo apt install \
+sudo apt install ${BP} \
   $(cat package.list)
