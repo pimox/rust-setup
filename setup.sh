@@ -16,10 +16,6 @@ if [ ! -d "${HOME}/.rustup" ]; then
 fi
 . "$HOME/.cargo/env"
 
-# We need the latest debcargo
-sudo apt install ${BP} pkg-config libssl-dev libcurl4-gnutls-dev quilt
-cargo install debcargo --locked
-
 # We need to install the default rustc and cargo (even though we don't want to use them as) they're dependencies
 sudo apt install ${BP} \
   rustc \
@@ -31,6 +27,11 @@ TC="${TV}-$(uname -m)-$(uname -i)-linux-gnu"
 rustup toolchain install ${TV}
 # And make system use it
 rustup toolchain link system "${HOME}/.rustup/toolchains/${TC}"
+rustup deault ${TV}
+
+# We need the latest debcargo
+sudo apt install ${BP} pkg-config libssl-dev libcurl4-gnutls-dev quilt
+cargo install debcargo --locked
 
 # Replace the default debian cargo wrapper
 # This just removes the hard-coded /usr/bin/cargo path as well as the -Z option which doesnt work on stable compilers
