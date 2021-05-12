@@ -19,9 +19,11 @@ sudo apt install \
   cargo
 
 # Setup the compatible toolchain
-rustup toolchain install 1.51.0
+TV=1.51.0
+TC="${TV}-$(uname -m)-$(uname -i)-linux-gnu"
+rustup toolchain install ${TV}
 # And make system use it
-rustup toolchain link system 1.51.0-$(uname -m)-$(uname -i)-linux-gnu
+rustup toolchain link system "${HOME}/.rustup/toolchains/${TC}"
 
 # We need the latest debcargo
 cargo install debcargo
