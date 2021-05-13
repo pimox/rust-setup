@@ -18,7 +18,9 @@ fi
 
 # We need the latest debcargo
 sudo apt install ${BP} pkg-config libssl-dev libcurl4-gnutls-dev quilt
-cargo install debcargo --locked
+# Currently building a working version for arm is buggy, so we include one
+#cargo install debcargo --locked
+cp binaries/debcargo $HOME/.cargo/bin/debcargo
 
 # We need to install the default rustc and cargo (even though we don't want to use them as) they're dependencies
 sudo apt install ${BP} \
