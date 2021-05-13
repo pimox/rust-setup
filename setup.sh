@@ -33,6 +33,7 @@ TC="${TV}-$(uname -m)-$(uname -i)-linux-gnu"
 rustup toolchain install ${TV}
 # And make system use it
 rustup toolchain link system "${HOME}/.rustup/toolchains/${TC}"
+rustup default ${TV}
 
 # Replace the default debian cargo wrapper
 # This just removes the hard-coded /usr/bin/cargo path as well as the -Z option which doesnt work on stable compilers
